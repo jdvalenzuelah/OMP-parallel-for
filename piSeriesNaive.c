@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
    thread_count = strtol(argv[1], NULL, 10);
    n = strtoll(argv[2], NULL, 10);
 
-#  pragma omp parallel for num_threads(thread_count) \
+#  pragma omp parallel for num_threads(thread_count) private(factor) \
       reduction(+: sum)
    for (k = 0; k < n; k++) { 
       sum += factor/(2*k+1);
